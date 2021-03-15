@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class Event {
-
     private int EventId;
+    private String EventMessage;
 }

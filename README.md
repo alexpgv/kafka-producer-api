@@ -1,5 +1,5 @@
 # Kafka producer API
-[![CircleCI](https://circleci.com/gh/alexpgv/kafka-producer-api.svg?style=shield)](https://circleci.com/gh/alexpgv/kafka-producer-api)
+[![CircleCI](https://circleci.com/gh/alexpgv/kafka-producer-api.svg?style=shield)](https://circleci.com/gh/alexpgv/kafka-producer-api) [![Maintainability](https://api.codeclimate.com/v1/badges/66cbdc9168906ab22fec/maintainability)](https://codeclimate.com/github/alexpgv/kafka-producer-api/maintainability)
 
 Java / Spring boot application to produce Kafka events from an API
 
@@ -15,6 +15,7 @@ cd kafka-producer-api
 
 * JDK 11
 * Gradle 6+
+* Kafka cluster
 
 
 ### Installing

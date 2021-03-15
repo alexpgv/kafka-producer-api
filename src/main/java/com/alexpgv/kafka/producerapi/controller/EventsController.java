@@ -1,8 +1,9 @@
 package com.alexpgv.kafka.producerapi.controller;
 
 import com.alexpgv.kafka.producerapi.domain.Event;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.alexpgv.kafka.producerapi.producer.EventProducer;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EventsController {
 
-    private static final Logger logger = LoggerFactory.getLogger(EventsController.class);
+    @Autowired
+    EventProducer eventProducer;
 
     @PostMapping("/v1/event")
-    public ResponseEntity<Event> postEvent(@RequestBody Event event) {
-        logger.info("Event created");
+    public ResponseEntity<Event> postEvent(@RequestBody Event event) throws JsonProcessingException {
+        eventProducer.sendEvent(event);
         return ResponseEntity.status(HttpStatus.CREATED).body(event);
     }
 
